@@ -30,7 +30,7 @@ author_bio: Experienced Web Software Developer with over 10 years designing, bui
 author_location: Brazil
 author_website_url: "https://joaodecarvalho.com"
 typewrite-text: "Hi all!"
-hero_cover_img: cover.jpg # replace this for changing homepage cover (eg. try cover.jpeg). Image should be in /assets/img
+hero_cover_img: landing1.jpg # replace this for changing homepage cover (eg. try cover.jpeg). Image should be in /assets/img
 
 # Experiences
 author_work_experiences:
@@ -70,9 +70,8 @@ author_project_details:
                 visibility: true
 
 # social links
-twitter_username: xplor4r
-github_username:  sujaykundu777
-instagram_username: xplor4r
+github_username:  jdcarvalho
+instagram_username: jdiascavalho
 # facebook_username: johndoe
 # linkedin_username: johndoe
 # behance_username: johndoe
@@ -106,9 +105,9 @@ highlighter: rouge
 permalink: pretty
 
 # Choose what to show ( can be true or false)
-show_author_work_experiences: true
-show_author_education_details: true
-show_author_project_details: true
+show_author_work_experiences: false
+show_author_education_details: false
+show_author_project_details: false
 
 # pagination of posts
 paginate: 4
