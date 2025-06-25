@@ -1,5 +1,5 @@
-title: devlopr
-subtitle: A Portfolio Jekyll Theme Built for Developers
+title: "#jdcarvalho"
+subtitle: "Coding is the present and future of technology, and I am here to make it better."
 description: >- # this means to ignore newlines until "baseurl:"
   devlopr-jekyll is a beautiful Jekyll Theme Built For Developers, which is optimized for speed and readability.
 
@@ -29,8 +29,8 @@ author: João de Carvalho
 author_bio: Experienced Web Software Developer with over 10 years designing, building, and scaling SaaS platforms for education. Additionally, brings 9 years of solid experience in developing solutions for retail, accounting, and business intelligence, combining deep technical skills with strong business understanding. Passionate about creating reliable, scalable, and user-centered software.
 author_location: Brazil
 author_website_url: "https://joaodecarvalho.com"
-typewrite-text: "Hi, I'm João de Carvalho, a Web Software Developer with over 10 years of experience in building and scaling SaaS platforms for education. I also have 9 years of experience in developing solutions for retail, accounting, and business intelligence. I am passionate about creating reliable, scalable, and user-centered software."
-hero_cover_img: default_cover.jpg # replace this for changing homepage cover (eg. try cover.jpeg). Image should be in /assets/img
+typewrite-text: "Hi all!"
+hero_cover_img: cover.jpg # replace this for changing homepage cover (eg. try cover.jpeg). Image should be in /assets/img
 
 # Experiences
 author_work_experiences:
