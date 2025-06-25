@@ -3,7 +3,7 @@
 [![Follow Me on Instagram](https://img.shields.io/badge/-Instagram-E4405F?style=flat-square&logo=instagram&logoColor=white)](https://www.instagram.com/jdiascarvalho/)
 [![Contact Me on Telegram](https://img.shields.io/badge/-Telegram-26A5E4?style=flat-square&logo=telegram&logoColor=white)](https://t.me/jdiascarvalho)
 
-I'm a web software developer with ten years of experience. During this time, I've developed expertise in various domains, including:
+I'm a Senior Web Software Developer with ten years of experience in SaaS applications. During this time, I've developed expertise in various domains, including:
 
 - SaaS business;
 - Software for education;
