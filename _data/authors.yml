@@ -1,0 +1,17 @@
+# Add Authors here
+jdcarvalho:
+   name: João de Carvalho
+   username: jdcarvalho
+   site: https://joaodecarvalho.com
+   avatar: johndoe.png
+   bio: "Hi I a John, a Web Developer and Designer."
+   email: mail@johndoe.com
+   social:
+      - title: "github"
+        url: "https://github.com/jdcarvalho"
+      - title: "linkedin"
+        url: "https://www.linkedin.com/in/johndoe"
+      - title: "instagram"
+        url: "https://instagram.com/johndoe"
+      - title: "telegram"
+        url: "https://telegram.com/johndoe"
