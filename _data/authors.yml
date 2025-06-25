@@ -3,15 +3,14 @@ jdcarvalho:
    name: João de Carvalho
    username: jdcarvalho
    site: https://joaodecarvalho.com
-   avatar: johndoe.png
-   bio: "Hi I a John, a Web Developer and Designer."
-   email: mail@johndoe.com
+   avatar: jdcarvalho.png
+   bio: "Experienced Web Software Developer with over 10 years designing, building, and scaling SaaS platforms for education. Additionally, brings 9 years of solid experience in developing solutions for retail, accounting, and business intelligence, combining deep technical skills with strong business understanding. Passionate about creating reliable, scalable, and user-centered software."
    social:
       - title: "github"
         url: "https://github.com/jdcarvalho"
       - title: "linkedin"
-        url: "https://www.linkedin.com/in/johndoe"
+        url: "https://www.linkedin.com/in/jdiascarvalho"
       - title: "instagram"
-        url: "https://instagram.com/johndoe"
+        url: "https://instagram.com/jdiascarvalho"
       - title: "telegram"
-        url: "https://telegram.com/johndoe"
+        url: "https://telegram.com/jdiascarvalho"

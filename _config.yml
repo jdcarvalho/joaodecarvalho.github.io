@@ -24,14 +24,13 @@ urls:
 
 # Edit Author details (For multi authors check _data/authors.yml)
 
-author_logo: profile.png
-author: John Doe
-author_bio: Hi, my name is John Doe. I built this site using devlopr-jekyll :D
-author_email: "mail@sujaykundu.com"
-author_location: India
-author_website_url: "https://sujaykundu.com"
-typewrite-text: devlopr is a jekyll framework built for developers. You can edit this in _config.yml file
-hero_cover_img: sample_cover.jpg # replace this for changing homepage cover (eg. try cover.jpeg). Image should be in /assets/img
+author_logo: jdcarvalho.png
+author: João de Carvalho
+author_bio: Experienced Web Software Developer with over 10 years designing, building, and scaling SaaS platforms for education. Additionally, brings 9 years of solid experience in developing solutions for retail, accounting, and business intelligence, combining deep technical skills with strong business understanding. Passionate about creating reliable, scalable, and user-centered software.
+author_location: Brazil
+author_website_url: "https://joaodecarvalho.com"
+#typewrite-text: devlopr is a jekyll framework built for developers. You can edit this in _config.yml file
+hero_cover_img: cover.jpg # replace this for changing homepage cover (eg. try cover.jpeg). Image should be in /assets/img
 
 # Experiences
 author_work_experiences:
