@@ -1,4 +1,3 @@
-# Game On
 
 ### devlopr-jekyll - A Beautiful Jekyll Theme Built for Developers
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
