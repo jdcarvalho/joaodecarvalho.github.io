@@ -22,8 +22,12 @@ I also have eight years of experience in business retail software, accounting, a
 
 ## 🔧 Technologies & Tools
 
-### Operating Systems
+### Backend Web Development
+![Django](https://img.shields.io/badge/-Django-092E20?style=flat-square&logo=django&logoColor=white)
+![Struts](https://img.shields.io/badge/-Struts-8B0000?style=flat-square&logo=apache&logoColor=white)
+![ASP.NET](https://img.shields.io/badge/ASP.NET-5C2D91?style=flat-square&logo=.net&logoColor=white)
 
+### Operating Systems
 ![Linux](https://img.shields.io/badge/-Linux-FCC624?style=flat-square&logo=linux&logoColor=black)
 ![Debian](https://img.shields.io/badge/-Debian-A81D33?style=flat-square&logo=debian&logoColor=white)
 ![Ubuntu Server](https://img.shields.io/badge/Ubuntu_Server-E95420?style=flat-square&logo=ubuntu&logoColor=white)
@@ -31,7 +35,6 @@ I also have eight years of experience in business retail software, accounting, a
 ![Fedora](https://img.shields.io/badge/Fedora-294172?style=flat-square&logo=fedora&logoColor=white)
 
 ### Programming Languages
-
 ![Python](https://img.shields.io/badge/-Python-3776AB?style=flat-square&logo=python&logoColor=white)
 ![Shell Script](https://img.shields.io/badge/Shell_Script-121011?style=flat-square&logo=gnu-bash&logoColor=white)
 ![Java](https://img.shields.io/badge/-Java-007396?style=flat-square&logo=java&logoColor=white)
@@ -50,11 +53,6 @@ I also have eight years of experience in business retail software, accounting, a
 ![Alpine.js](https://img.shields.io/badge/-Alpine.js-8B0000?style=flat-square&logo=alpine.js&logoColor=white)
 ![HTMX](https://img.shields.io/badge/-HTMX-FF5722?style=flat-square&logo=htmx&logoColor=white)
 
-### Backend Web Development
-
-
-![Struts](https://img.shields.io/badge/-Struts-8B0000?style=flat-square&logo=apache&logoColor=white)
-![ASP.NET](https://img.shields.io/badge/ASP.NET-5C2D91?style=flat-square&logo=.net&logoColor=white)
 
 ### Databases
 
