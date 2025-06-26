@@ -29,19 +29,19 @@ To run the POC:
 2. Install dependencies:
 
 ```bash
-	pip install -r requirements.txt
+pip install -r requirements.txt
 ```
 3. Run migrations and create a superuser:
 
 ```bash
-    ./manage.py makemigrations
-    ./manage.py migrate
-    ./manage.py createsuperuser
+./manage.py makemigrations
+./manage.py migrate
+./manage.py createsuperuser
 ```
 4. Start the development server:
 
 ```bash
-    ./manage.py runserver
+./manage.py runserver
 ```
 
 5. Log in to Django admin, enable 2FA for a user, then test logging in to trigger OTP flows.
@@ -58,4 +58,4 @@ When a user enables 2FA, the server:
 - Exposes a QR code (via templates) for easy scanning by authenticator apps
 
 ### 📈 Flow Diagram Summary
-![otp-flow.png](../assets/img/posts/otp-flow.png)
+<img src="../assets/img/posts/otp-flow.png" alt="Flow Diagram">
