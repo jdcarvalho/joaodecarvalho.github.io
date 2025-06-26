@@ -12,7 +12,7 @@ categories: [Python, Django, 2FA]
 
 ### 🔒 Introduction
 
-[The otpauth repository](https://github.com/jdcarvalho/otpauth) by is a proof‑of‑concept (POC) showcasing how to integrate Two‑Factor Authentication (2FA) via One‑Time Passwords (OTP) into a Django-based application. It leverages the pyotp library to generate and validate time-based OTPs (TOTP), adding an extra security layer on top of traditional username/password authentication.
+[The otpauth repository](https://github.com/jdcarvalho/otpauth) is a proof‑of‑concept (POC) showcasing how to integrate Two‑Factor Authentication (2FA) via One‑Time Passwords (OTP) into a Django-based application. It leverages the pyotp library to generate and validate time-based OTPs (TOTP), adding an extra security layer on top of traditional username/password authentication.
 It uses Django default admin for managing OTP settings and user activation, making it easy to integrate into existing Django projects.
 
 ### 📁 Project Structure
