@@ -58,4 +58,4 @@ When a user enables 2FA, the server:
 - Exposes a QR code (via templates) for easy scanning by authenticator apps
 
 ### 📈 Flow Diagram Summary
-<img src="../assets/img/posts/otp-flow.png" alt="Flow Diagram">
+![otp-flow.png]({{ site.baseurl }}/assets/img/posts/otp-flow.png)
