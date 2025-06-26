@@ -12,6 +12,9 @@ I'm a Senior Web Software Developer with ten years of experience in SaaS applica
 
 I also have eight years of experience in business retail software, accounting, and business intelligence software.
 
+--- 
+
+
 ## 🚀 About Me
 
 - 🔭 I'm enhancing my skills in frontend technologies and learning more about AI.
@@ -20,12 +23,16 @@ I also have eight years of experience in business retail software, accounting, a
 - 💬 Ask me about SaaS development, web technologies, or anything related to software engineering.
 - ⚡ Fun fact: I love to make Brazilian barbecue almost every weekend.
 
+---
 ## 🔧 Technologies & Tools
+
 
 ### Backend Web Development
 ![Django](https://img.shields.io/badge/-Django-092E20?style=flat-square&logo=django&logoColor=white)
 ![Struts](https://img.shields.io/badge/-Struts-8B0000?style=flat-square&logo=apache&logoColor=white)
 ![ASP.NET](https://img.shields.io/badge/ASP.NET-5C2D91?style=flat-square&logo=.net&logoColor=white)
+
+--- 
 
 ### Operating Systems
 ![Linux](https://img.shields.io/badge/-Linux-FCC624?style=flat-square&logo=linux&logoColor=black)
@@ -33,6 +40,8 @@ I also have eight years of experience in business retail software, accounting, a
 ![Ubuntu Server](https://img.shields.io/badge/Ubuntu_Server-E95420?style=flat-square&logo=ubuntu&logoColor=white)
 ![CentOS](https://img.shields.io/badge/CentOS-262577?style=flat-square&logo=centos&logoColor=white)
 ![Fedora](https://img.shields.io/badge/Fedora-294172?style=flat-square&logo=fedora&logoColor=white)
+
+--- 
 
 ### Programming Languages
 ![Python](https://img.shields.io/badge/-Python-3776AB?style=flat-square&logo=python&logoColor=white)
@@ -44,6 +53,8 @@ I also have eight years of experience in business retail software, accounting, a
 ![JavaScript](https://img.shields.io/badge/-JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
 ![Delphi](https://img.shields.io/badge/Delphi-EE1F35?style=flat-square&logo=delphi&logoColor=white)
 
+---
+
 ### Frontend Development
 
 ![HTML5](https://img.shields.io/badge/-HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
@@ -53,6 +64,7 @@ I also have eight years of experience in business retail software, accounting, a
 ![Alpine.js](https://img.shields.io/badge/-Alpine.js-8B0000?style=flat-square&logo=alpine.js&logoColor=white)
 ![HTMX](https://img.shields.io/badge/-HTMX-FF5722?style=flat-square&logo=htmx&logoColor=white)
 
+---
 
 ### Databases
 
@@ -62,11 +74,15 @@ I also have eight years of experience in business retail software, accounting, a
 ![SQL Server](https://img.shields.io/badge/SQL_Server-CC2927?style=flat-square&logo=microsoft-sql-server&logoColor=white)
 ![Firebird](https://img.shields.io/badge/Firebird-CC0000?style=flat-square&logo=firebird&logoColor=white)
 
+---
+
 ### Other Tools
 
 ![Git](https://img.shields.io/badge/-Git-F05032?style=flat-square&logo=git&logoColor=white)
 ![GitHub](https://img.shields.io/badge/-GitHub-181717?style=flat-square&logo=github&logoColor=white)
 ![Docker](https://img.shields.io/badge/-Docker-2496ED?style=flat-square&logo=docker&logoColor=white)
+
+---
 
 ## 📈 GitHub Stats
 [![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=jdcarvalho&theme=radical)](https://github.com/jdcarvalho)
