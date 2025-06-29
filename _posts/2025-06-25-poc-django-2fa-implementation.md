@@ -3,6 +3,8 @@ layout: post
 author: "jdcarvalho"
 title: "Proof of Concept: 2FA in Django with TOTP"
 date: 2025-06-25 14:07:00
+image: /assets/img/posts/poc-django-2fa-implementation.png
+thumbnail: /assets/img/posts/poc-django-2fa-implementation.png
 categories: [Python, Django, 2FA]
 ---
 
