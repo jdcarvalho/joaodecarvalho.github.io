@@ -1,0 +1,449 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>#jdcarvalho</title>
+    <description>devlopr-jekyll is a beautiful Jekyll Theme Built For Developers, which is optimized for speed and readability.</description>
+    <link>http://localhost:4000/</link>
+    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sun, 29 Jun 2025 12:47:31 -0300</pubDate>
+    <lastBuildDate>Sun, 29 Jun 2025 12:47:31 -0300</lastBuildDate>
+    <generator>Jekyll v4.3.4</generator>
+
+    
+      <item>
+        <title>Proof of Concept: 2FA in Django with TOTP</title>
+        <description>&lt;h1 id=&quot;proof-of-concept-2fa-in-django-with-totp&quot;&gt;Proof of Concept: 2FA in Django with TOTP&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;-introduction&quot;&gt;🔒 Introduction&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/jdcarvalho/otpauth&quot;&gt;The otpauth repository&lt;/a&gt; is a proof of concept (POC) that demonstrates how to integrate Two‑Factor Authentication (2FA) using Time‑based One‑Time Passwords (TOTP) into a Django application.&lt;/p&gt;
+
+&lt;p&gt;It leverages the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pyotp&lt;/code&gt; library to generate and verify time-bound OTPs, providing an extra layer of security on top of the traditional username/password login flow. The project also customizes the Django admin interface to manage 2FA settings, making it easy to integrate into existing Django apps — especially admin panels or internal tools that need additional protection.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;-project-structure&quot;&gt;📁 Project Structure&lt;/h3&gt;
+
+&lt;p&gt;The repository includes the following components:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;otpauth/&lt;/code&gt;: Django app containing models, views, forms, and core logic for OTP integration.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;custom_admin/&lt;/code&gt;: Admin customizations to manage OTP settings and enable 2FA per user.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;templates/&lt;/code&gt;: HTML pages for OTP enrollment, QR code display, and verification.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;manage.py&lt;/code&gt; &amp;amp; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;requirements.txt&lt;/code&gt;: Typical Django project files and dependencies.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;-setup-instructions&quot;&gt;✅ Setup Instructions&lt;/h3&gt;
+
+&lt;p&gt;To run the POC locally:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Create a virtual environment (Python 3.x recommended)&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Install dependencies:&lt;/p&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; pip &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-r&lt;/span&gt; requirements.txt
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Run migrations and create a superuser:&lt;/p&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; ./manage.py makemigrations
+ ./manage.py migrate
+ ./manage.py createsuperuser
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Start the development server:&lt;/p&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; ./manage.py runserver
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Access Django Admin at &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;http://127.0.0.1:8000/admin/&lt;/code&gt;, enable 2FA for a user, and log in to test OTP flows.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;-core-components&quot;&gt;🧩 Core Components&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;pyotp Integration&lt;/strong&gt;: The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pyotp&lt;/code&gt; library is used to generate and validate TOTP codes using a shared secret between the server and the user’s authenticator app.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Secret Generation &amp;amp; Storage&lt;/strong&gt;:&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;A random base32 secret is generated using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pyotp.random_base32()&lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt;The secret is securely stored in the user profile or a dedicated OTP model&lt;/li&gt;
+      &lt;li&gt;A QR code is generated and rendered via templates to simplify enrollment with apps like Google Authenticator or Authy&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;-flow-diagram-summary&quot;&gt;📈 Flow Diagram Summary&lt;/h3&gt;
+
+&lt;p&gt;The diagram below illustrates the 2FA flow, from secret generation to OTP verification during login:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/posts/otp-flow.png&quot; alt=&quot;OTP Flow&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;-next-steps-optional-enhancements&quot;&gt;🔧 Next Steps (Optional Enhancements)&lt;/h3&gt;
+
+&lt;p&gt;This POC can be extended with the following improvements for real-world use:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Add backup codes for recovery&lt;/li&gt;
+  &lt;li&gt;Enforce OTP validation across all login endpoints using middleware&lt;/li&gt;
+  &lt;li&gt;Integrate support for WebAuthn or hardware-based tokens&lt;/li&gt;
+  &lt;li&gt;Secure the QR code endpoint with permissions or CSRF protection&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;️-disclaimer&quot;&gt;🛡️ Disclaimer&lt;/h3&gt;
+
+&lt;p&gt;This implementation is intended as a learning resource and starting point. Additional hardening is required before deploying it in production environments, such as rate-limiting login attempts and encrypting stored secrets.&lt;/p&gt;
+</description>
+        <pubDate>Wed, 25 Jun 2025 11:07:00 -0300</pubDate>
+        <link>http://localhost:4000/python/django/2fa/2025/06/25/poc-django-2fa-implementation/</link>
+        <guid isPermaLink="true">http://localhost:4000/python/django/2fa/2025/06/25/poc-django-2fa-implementation/</guid>
+      </item>
+    
+
+    
+      
+        
+      
+    
+      
+    
+      
+        
+          <item>
+            <title></title>
+            <description>&lt;h3&gt;   &lt;/h3&gt;
+
+&lt;div id=&quot;categories&quot;&gt;
+
+  &lt;div class=&quot;category-box&quot;&gt;
+    
+    &lt;div id=&quot;#Python&quot;&gt;&lt;/div&gt;
+    &lt;h4 class=&quot;category-head&quot;&gt;&lt;a href=&quot;/blog/categories/Python&quot;&gt;Python&lt;/a&gt;&lt;/h4&gt;
+    &lt;a name=&quot;Python&quot;&gt;&lt;/a&gt;
+     
+    &lt;article class=&quot;center&quot;&gt;
+      &lt;h6&gt;&lt;a href=&quot;/python/django/2fa/2025/06/25/poc-django-2fa-implementation/&quot;&gt;Proof of Concept: 2FA in Django with TOTP&lt;/a&gt;&lt;/h6&gt;
+    &lt;/article&gt;
+
+
+    
+
+  &lt;/div&gt;
+
+  &lt;div class=&quot;category-box&quot;&gt;
+    
+    &lt;div id=&quot;#Django&quot;&gt;&lt;/div&gt;
+    &lt;h4 class=&quot;category-head&quot;&gt;&lt;a href=&quot;/blog/categories/Django&quot;&gt;Django&lt;/a&gt;&lt;/h4&gt;
+    &lt;a name=&quot;Django&quot;&gt;&lt;/a&gt;
+     
+    &lt;article class=&quot;center&quot;&gt;
+      &lt;h6&gt;&lt;a href=&quot;/python/django/2fa/2025/06/25/poc-django-2fa-implementation/&quot;&gt;Proof of Concept: 2FA in Django with TOTP&lt;/a&gt;&lt;/h6&gt;
+    &lt;/article&gt;
+
+
+    
+
+  &lt;/div&gt;
+
+  &lt;div class=&quot;category-box&quot;&gt;
+    
+    &lt;div id=&quot;#2FA&quot;&gt;&lt;/div&gt;
+    &lt;h4 class=&quot;category-head&quot;&gt;&lt;a href=&quot;/blog/categories/2FA&quot;&gt;2FA&lt;/a&gt;&lt;/h4&gt;
+    &lt;a name=&quot;2FA&quot;&gt;&lt;/a&gt;
+     
+    &lt;article class=&quot;center&quot;&gt;
+      &lt;h6&gt;&lt;a href=&quot;/python/django/2fa/2025/06/25/poc-django-2fa-implementation/&quot;&gt;Proof of Concept: 2FA in Django with TOTP&lt;/a&gt;&lt;/h6&gt;
+    &lt;/article&gt;
+
+
+    
+
+  &lt;/div&gt;
+
+&lt;/div&gt;
+
+</description>
+            <link>http://localhost:4000/blog/categories/</link>
+          </item>
+        
+      
+    
+      
+    
+      
+    
+      
+        
+          <item>
+            <title>Guides</title>
+            <description>&lt;h5&gt; Posts by Category : {{ page.title }} &lt;/h5&gt;
+
+&lt;div class=&quot;card&quot;&gt;
+{% for post in site.categories.guides %}
+ &lt;li class=&quot;category-posts&quot;&gt;&lt;span&gt;{{ post.date | date_to_string }}&lt;/span&gt; &amp;nbsp; &lt;a href=&quot;{{ post.url }}&quot;&gt;{{ post.title }}&lt;/a&gt;&lt;/li&gt;
+{% endfor %}
+&lt;/div&gt;</description>
+            <link>http://localhost:4000/blog/categories/guides/</link>
+          </item>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <item>
+            <title>Get Started</title>
+            <description>## Getting Started - How to use “devlopr-jekyll” theme
+
+## What&apos;s Jekyll ?
+
+If you aren’t familiar with Jekyll yet, you should know that it is a static site generator. It will transform your plain text into static websites and blogs. No more databases, slow loading websites, risk of being hacked…just your content. And not only that, with Jekyll you get free hosting with GitHub Pages! If you are a beginner we recommend you start with [Jekyll’s Docs](https://jekyllrb.com/docs/installation/). Now, if you know how to use Jekyll, let’s move on to using this theme in Jekyll:
+
+## Watch Tutorial
+
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/cXBEfpn0qrg?rel=0&amp;amp;controls=0&amp;amp;showinfo=0&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
+
+
+### Steps to create your blog using devlopr-jekyll and Host using Github Pages :
+
+&gt;  **Step 1.**  Fork the repo - [click here](https://github.com/sujaykundu777/devlopr-jekyll/fork)
+
+![Devlopr Jekyll Repo](/assets/img/posts/fork1.PNG){:class=&quot;img-fluid&quot;}
+
+&gt; **Step 2.** Use **your-github-username.github.io** as the new repo  ( Replace your-github-username with yours). Remember if you use the name other than your-github-username.github.io , your blog will be built using gh-pages branch.
+
+![Devlopr Jekyll Repo](/assets/img/posts/fork2.PNG){:class=&quot;img-fluid&quot;}
+
+![Devlopr Jekyll Repo](/assets/img/posts/fork3.PNG){:class=&quot;img-fluid&quot;}
+
+&gt; **Step 3.** Clone the new repo locally to make changes :
+
+![Devlopr Jekyll Repo](/assets/img/posts/fork31.PNG){:class=&quot;img-fluid&quot;}
+
+![Devlopr Jekyll Repo](/assets/img/posts/fork32.PNG){:class=&quot;img-fluid&quot;}
+
+![Devlopr Jekyll Repo](/assets/img/posts/fork33.PNG){:class=&quot;img-fluid&quot;}
+
+```bash
+ $ git clone https://github.com/yourusername/yourusername.github.io
+ $ cd yourusername.github.io
+ $ code .
+```
+
+&gt; **Step 4.** Open the files using VSCode and edit _config.yml and edit with your details:
+
+- _config.yml file - replace with your own details
+- _posts - Add your blog posts here
+- _includes - You can replace the contents of the files with your data. (contains widgets)
+- _assets/img - Add all your images here
+
+![Devlopr Jekyll Repo](/assets/img/posts/fork34.PNG){:class=&quot;img-fluid&quot;}
+
+&gt; **Step 5** - Install the development requirements:
+
+### Set up local development environment
+
+1. [Git](https://git-scm.com/)
+2. [Ruby](https://www.ruby-lang.org/) and [Bundler](https://bundler.io/)
+3. [VSCode](https://code.visualstudio.com/download)
+
+We need ruby and bundler to build our site locally. After installation check if its working:
+
+For ruby :
+
+```bash
+$ ruby -v
+ruby 2.5.1p57 (2018-03-29 revision 63029) [x86_64-linux-gnu]
+```
+For bundler :
+
+```bash
+$ gem install bundler
+$ bundler -v
+Bundler version 2.2.29
+```
+Add jekyll :
+
+```bash
+$ bundle update
+$ bundle add jekyll
+```
+ This command will add the Jekyll gem to our Gemfile and install it to the ./vendor/bundle/ folder.
+
+You can check the jekyll version
+
+```
+$ bundle exec jekyll -v
+jekyll 4.2.0
+```
+
+&gt; **Step 6.** Install the gem dependencies by running the following command
+
+```bash
+$ bundle update
+$ bundle install
+```
+
+&gt; **Step 7.** Serve the site locally by running the following command below:
+
+```bash
+$ bundle exec jekyll serve --watch
+```
+or you can also serve using :
+
+```bash
+$ jekyll serve
+```
+
+Visit [http://localhost:4000](http://localhost:4000) for development server
+
+![Devlopr Jekyll Repo](/assets/img/posts/fork41.PNG){:class=&quot;img-fluid&quot;}
+
+
+### Adding Content
+
+Start populating your blog by adding your .md files in _posts. devlopr-jekyll already has a few examples.
+
+#### YAML Post Example:
+
+```yml
+---
+layout: post
+title: Sample Post
+author: Sujay Kundu
+date: &apos;2019-05-21 14:35:23 +0530&apos;
+category:
+        - jekyll
+summary: This is the summary for the sample post
+thumbnail: sample.png
+---
+
+Hi ! This is sample post.
+
+```
+
+#### YAML Page Example:
+
+```yml
+---
+layout: page
+title: Sample Page
+permalink: /sample-page/
+---
+
+Hi ! This is sample page.
+```
+
+#### Editing stylesheet
+
+You’ll only work with a single file to edit/add theme style: assets/css/main.scss.
+
+### Deploy your Changes
+
+Once happy with your blog changes. Push your changes to master branch.
+
+&gt; **Step 8.** Push Your Local Changes
+
+```bash
+ $ git add .
+ $ git commit -m &quot;my new blog using devlopr-jekyll&quot;
+ $ git push origin master
+```
+
+Visit your Github Repo settings ! Enable master branch as Github Pages Branch :
+
+![Devlopr Jekyll Repo](/assets/img/posts/fork6.PNG){:class=&quot;img-fluid&quot;}
+
+&gt; **Step 9.** Deploy your Blog :
+
+![Devlopr Jekyll Repo](/assets/img/posts/fork7.PNG){:class=&quot;img-fluid&quot;}
+
+&gt; Congrats ! On your new shining Blog !
+
+You can visit the blog using [http://your-github-username.github.io](http://your-github-username.github.io).
+
+</description>
+            <link>http://localhost:4000/get-started/</link>
+          </item>
+        
+      
+    
+      
+        
+          <item>
+            <title>Jekyll</title>
+            <description>&lt;h5&gt; Posts by Category : {{ page.title }} &lt;/h5&gt;
+
+&lt;div class=&quot;card&quot;&gt;
+{% for post in site.categories.jekyll %}
+ &lt;li class=&quot;category-posts&quot;&gt;&lt;span&gt;{{ post.date | date_to_string }}&lt;/span&gt; &amp;nbsp; &lt;a href=&quot;{{ post.url }}&quot;&gt;{{ post.title }}&lt;/a&gt;&lt;/li&gt;
+{% endfor %}
+&lt;/div&gt;</description>
+            <link>http://localhost:4000/blog/categories/jekyll/</link>
+          </item>
+        
+      
+    
+      
+    
+      
+    
+      
+        
+          <item>
+            <title>Guides</title>
+            <description>&lt;h5&gt; Posts by Category : {{ page.title }} &lt;/h5&gt;
+
+&lt;div class=&quot;card&quot;&gt;
+{% for post in site.categories.sample_category %}
+ &lt;li class=&quot;category-posts&quot;&gt;&lt;span&gt;{{ post.date | date_to_string }}&lt;/span&gt; &amp;nbsp; &lt;a href=&quot;{{ post.url }}&quot;&gt;{{ post.title }}&lt;/a&gt;&lt;/li&gt;
+{% endfor %}
+&lt;/div&gt;</description>
+            <link>http://localhost:4000/blog/categories/sample_category/</link>
+          </item>
+        
+      
+    
+      
+    
+      
+        
+          <item>
+            <title>Our Sponsors</title>
+            <description>Thanks to all the amazing contributors and our Backers for the support.
+
+- [Dirish Mohan](https://dirishmohan.com)</description>
+            <link>http://localhost:4000/sponsors/</link>
+          </item>
+        
+      
+    
+      
+    
+      
+    
+
+  </channel>
+</rss>
